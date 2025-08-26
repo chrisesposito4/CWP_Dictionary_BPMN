@@ -1,0 +1,78 @@
+{
+  "name": "cwpinfo",
+  "displayName": "CWP_Dictionary",
+  "description": "load cwp info derived from abstract class and finite state machine definitions",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.102.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "views": {
+      "explorer": [
+        {
+          "id": "cwp-dictionary",
+          "name": "CWP: Dictionary from class & state",
+          "icon": "media/CWP.ico"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "cwpinfo.CheckInstall",
+        "title": "CWP: Check Install",
+        "icon": "media/CWP.ico"
+      },
+      {
+        "command": "cwpinfo.ImportDict",
+        "title": "CWP: Import Dictionary",
+        "icon": "media/CWP.ico"
+      },
+      {
+        "command": "cwpinfo.item_copy",
+        "title": "Copy Value"
+      },
+      {
+        "command" : "cwpinfo.refresh",
+        "title" : "CWP Refresh Tree"}
+    ],
+    "menus" : 
+    {
+      "view/item/context": [
+        {
+        "command": "cwpinfo.item_copy",
+        "title": "Copy Value"
+      }
+      ]
+    },
+    "keybindings": [{
+      "command": "cwpinfo.item_copy",
+      "key": "alt+ctrl+c",
+      "mac": "alt+cmd+c"
+      
+    }]  
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.102.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.31.1",
+    "@typescript-eslint/parser": "^8.31.1",
+    "eslint": "^9.25.1",
+    "typescript": "^5.8.3",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}

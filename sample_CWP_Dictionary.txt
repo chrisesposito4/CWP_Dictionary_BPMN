@@ -1,0 +1,35 @@
+#Info
+  created: 2025-08-26T12:21:31.959587200
+  class_file: C:\Documents\CWP purchase-class.5.drawio
+  state_machine_file: C:\Documents\CWP-states-backpack.5.drawio
+
+#Types
+type boolean
+type string
+type int
+
+#States
+state Purchase pending
+state Purchase agreed
+state Purchase refused
+state Ownerships switched
+
+#Variables
+var paymentRetry : boolean
+var paymentOffered : int
+var termsRetry : boolean
+var termsAgreement : boolean
+var backpackFeatures : string
+var sellerName : string
+var buyerName : string
+var paymentOwner : string
+var backpackOwner : string
+var paymentAmount : int
+
+#Expressions
+expression [paymentOwner== buyerName && backpackOwner== sellerName] 
+expression [paymentOffered== paymentAmount && termsAgreement== true] 
+expression [paymentOffered< paymentAmount || termsAgreement== false] 
+expression [paymentOwner== sellerName && backpackOwner== buyerName] 
+expression [paymentRetry== false termsRetry== false] 
+expression [paymentRetry== true || termsRetry== true] 
